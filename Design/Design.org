@@ -1,0 +1,86 @@
+#+TITLE: CWMS-SuperShine Design
+
+* Identify Actors and Use Cases for the system. The use cases should be in casual format (not brief).
+** Min version (forberedelse)
+*** Title: Buy WashCard
+  - Actor: Customer
+  - Scope & Level?
+  - Story
+    - *Succes*
+      - A customer can buy a WashCard, if the customer has the necessary amount
+        of money, on creditcard, and would then be en possesion of a WashCard
+    - *Fail*
+      - If the customer doesn't have the necessary bank, they would be denied a
+        Washcard.
+*** Title: Recharge WashCard
+  - Actor: Customer
+  - Scope & Level?
+  - Story
+    - Succes
+      - The customer can choose to recharge their WashCard up to 1000 kr.
+    - Fail
+      - If the customer doesn't have the necessary bank, they would be denied
+        and asked if they wish to recharge with a different amount.
+*** Title: Use carwash
+  - Actor: Customer
+  - Scope & Level?
+  - Story
+    - Succes
+      - The customer chooses a wash type/wash program, and if the customer's
+        WashCard has a balance above the cost of the chosen wash program the
+        cost will be deduced from the customer's WashCard balance.
+    - Fail
+      - If the customer's WashCard balance is insuffienct, they will be
+        promptet to cancel wash request, or to refill WashCard.
+*** Title: Check amount remaining on WashCard
+  - Actor: Customer
+  - Scope & Level?
+  - Story
+    - Succes
+      - The customer can check the amount remaining on their WashCard.
+    - Fail
+      - If the customer doesn't have a WashCard, they will get denied and asked
+        if they wish to buy a WashCard.
+*** Title: Print receipt
+  - Actor: Customer
+  - Scope & Level?
+  - Story
+    - Succes
+      - When the a carwash is finished, they customer will get prompted to
+        answer if they wish a receipt, if they do, a receipt is printet else no
+        reciept is printet and the process is over.
+    - Fail
+      - If the customer haven't bought a carwash, and/or, doesn't have a
+        WashCard, they will be denied a receipt.
+*** Title: Print stats
+  - Actor: Owner
+  - Scope & Level?
+  - Story
+    - Succes
+      - The owner will be able to print stats on how many cars have been washed,
+        what type of carwash, each wash-type's total gross, the total gross etc.
+    - Fail
+      - If there hasn't been any cars washed, the owner will be prompted with
+        this message.
+
+* Create System Sequence Diagrams based your central Use Cases
+* Create a Noun List from your Use Cases.
+- Customer
+- WashCar
+- money/credit/bank
+- receipt
+- owner
+- Stats
+* Create a Verb List from your Use Cases.
+- Buy
+- Recharge
+- Use
+- Choose
+- deduced
+- cancel
+- Check
+- answer
+- print
+-
+* Create a Domain Model with relations and multiplicity based on you Noun List.
+* Create a Class Diagram for the Car Wash Management System.

@@ -5,7 +5,5 @@ public class Menu {
         
         ArrayList<Customer> customers = new ArrayList<Customer>();
         
-
-        
     }
 }

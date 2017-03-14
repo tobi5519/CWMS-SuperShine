@@ -1,4 +1,5 @@
-public class CreditCard{
+public class CreditCard
+{
      private double balance;
 
      private CreditCard(double balance)

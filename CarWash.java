@@ -1,4 +1,5 @@
-public class CarWash{
+public class CarWash
+{
 
     private String name;
     private double price;

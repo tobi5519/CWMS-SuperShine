@@ -12,5 +12,8 @@ public class Customer{
           this.creditCard = creditCard;
           this.id = id;
      }
+     public String getName(){
+          return firstName + " " + lastName;
+     }
 
 }

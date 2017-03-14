@@ -1,3 +1,4 @@
-public class Owner{
+public class Owner
+{
      private String password;
 }

@@ -9,7 +9,7 @@ public class Customer{
           this.firstName = firstName;
           this.lastName = lastName;
           this.washCard = washCard;
-          this.creditCard = creditCard;
+          this.creditCard = creditCard; 
           this.id = id;
      }
 

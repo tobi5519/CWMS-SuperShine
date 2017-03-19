@@ -20,4 +20,4 @@ funktion()
 Hvor meget er en tab for dig:
 Test:   jonas: 3 spaces
 Test:andreas
-Test:tobias
+Test:   tobias: 3 spaces (^~^)

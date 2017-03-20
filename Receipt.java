@@ -20,7 +20,7 @@ public class Receipt
     @Override
     public String toString() 
     {
-        return "Date: " + date + ", " + customer.getName() + ", " + washType + ", " + price;
+        return "Date: " + date + ", " + customer.getName() + ", " + carWash + ", " + price;
     }
 
 }

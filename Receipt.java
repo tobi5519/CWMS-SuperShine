@@ -16,6 +16,12 @@ public class Receipt
         this.price = price;
         
     }
+    public Receipt(Date date, Customer customer, double price)
+    {
+        this.date = date;
+        this.customer = customer;
+        this.price = price
+    }
 
     @Override
     public String toString() 

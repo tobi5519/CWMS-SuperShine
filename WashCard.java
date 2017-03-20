@@ -6,4 +6,14 @@ public class WashCard
      {
          this.balance = balance;
      }
+
+     public double checkBalance()
+     {
+         return balance;
+     }
+
+     public void buyCarWash(double balance)
+     {
+         
+     }
 }

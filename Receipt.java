@@ -24,3 +24,23 @@ public class Receipt
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

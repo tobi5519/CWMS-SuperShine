@@ -9,7 +9,7 @@ public class CarWash
         this.name = name;
         this.price = price;
     }
-     public void buyCarwash(WashType washType){
+     public void buyCarwash(CarWash carWash){
           // some code 
      }
      public void buyWashCard(double amount){

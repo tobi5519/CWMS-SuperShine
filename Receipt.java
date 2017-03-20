@@ -24,23 +24,3 @@ public class Receipt
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -9,10 +9,9 @@ public class CarWash
         this.name = name;
         this.price = price;
     }
-    public void buyCarwash(String washType){
+
+    public void getPrice(double price)
+    {
          // some code 
-    }
-    public void buyWashCard(double amount){
-         // some code
     }
 }

@@ -9,7 +9,7 @@ public class CarWash
         this.name = name;
         this.price = price;
     }
-     public void buyCarwash(WashType washType){
+     public void buyCarwash(String washType){
           // some code 
      }
      public void buyWashCard(double amount){

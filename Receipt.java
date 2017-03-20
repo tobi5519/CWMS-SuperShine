@@ -12,7 +12,7 @@ public class Receipt
     {
         this.date = date;
         this.customer = customer;
-        this.carWash = carWash;
+        this.carwash = carWash;
         this.price = price;
         
     }

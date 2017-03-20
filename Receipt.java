@@ -4,7 +4,7 @@ public class Receipt
 {
     private Date date;
     private Customer customer;
-    private CarWash carwash;
+    private CarWash carWash;
     private double price;
     
 
@@ -12,7 +12,7 @@ public class Receipt
     {
         this.date = date;
         this.customer = customer;
-        this.carwash = carWash;
+        this.carWash = carWash;
         this.price = price;
         
     }
@@ -20,7 +20,7 @@ public class Receipt
     {
         this.date = date;
         this.customer = customer;
-        this.price = price
+        this.price = price;
     }
 
     @Override

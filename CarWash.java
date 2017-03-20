@@ -10,8 +10,13 @@ public class CarWash
         this.price = price;
     }
 
-    public void getPrice(double price)
+    public double getPrice()
     {
-         // some code 
+        return this.price;
+    }
+
+    public String getName()
+    {
+        return this.name;
     }
 }

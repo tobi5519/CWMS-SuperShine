@@ -10,7 +10,7 @@ public class Customer
      {
           this.firstName = firstName;
           this.lastName = lastName;
-	  this.creditCard = creditCard;
+	     this.creditCard = creditCard;
      }
      
      public String getName()
@@ -21,6 +21,12 @@ public class Customer
      public void buyWashCard(double amount)
      {
      	  
+     }
+
+     @Override
+     public String toString()
+     {
+          return firstName + " " + lastName;
      }
 
 }

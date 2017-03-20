@@ -7,8 +7,8 @@ public class CreditCard
          this.balance = balance;
      }
      
-     public boolean purchase(double amount)
-     {
-     
-     }
+    //  public Boolean purchase(double amount)
+    //  {
+
+    //  }
 }

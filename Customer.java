@@ -6,17 +6,21 @@ public class Customer
      private CreditCard creditCard;
      
 
-     public Customer(String firstName, String lastName, WashCard washCard, CreditCard creditCard) 
+     public Customer(String firstName, String lastName, CreditCard creditCard) 
      {
           this.firstName = firstName;
           this.lastName = lastName;
-          this.washCard = washCard;
-          this.creditCard = creditCard; 
-          
+	  this.creditCard = creditCard;
      }
      
      public String getName()
      {
           return firstName + " " + lastName;
      }
+     
+     public void buyWashCard(double amount)
+     {
+     	  
+     }
+
 }

@@ -6,21 +6,21 @@ public class Receipt
     private Customer customer;
     private CarWash carwash;
     private double price;
-    private int id;
+    
 
-    public Receipt(Date date, Customer customer, CarWash carWash, double price, Int id)
+    public Receipt(Date date, Customer customer, CarWash carWash, double price)
     {
         this.date = date;
         this.customer = customer;
         this.carWash = carWash;
         this.price = price;
-        this.id = id;
+        
     }
 
     @Override
     public String toString() 
     {
-        return "Date: " + date + ", ID: " + id + ", " + customer.getName() + ", " + washType + ", " + price;
+        return "Date: " + date + ", " + customer.getName() + ", " + washType + ", " + price;
     }
 
 }

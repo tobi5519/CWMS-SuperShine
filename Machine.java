@@ -49,9 +49,9 @@ public class Machine
         {
             clearTerm();   
             System.out.println("-----------Main Menu----------");
-            System.out.println("--- Please insert washcard ---");
-            System.out.println("1. OPTION");
-            System.out.println("2. OPTION");
+            
+            System.out.println("1. Login");
+            System.out.println("2. New User");
             System.out.println("3. QUIT");
             choice = getInput();
             

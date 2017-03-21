@@ -1,9 +1,29 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Machine  
 {
+    
     public static void main(String[] args) 
-    {        
+    {   
+        boolean turnedOn = true;
+        
+        while (turnedOn)
+        {
+            switch(showMainMenu())
+            {
+                case 1: 
+                    showCustomerMenuFor(insertWashCardNr());
+                    break;
+                case 2:
+                    showRegisterMenu();
+                    break;
+                case 3:
+                    turnedOn = false;
+                    break;
+            } // end switch
+        } //end while
+
         Database db = new Database();
         CreditCard cc1 = new CreditCard(2000);
         CreditCard cc2 = new CreditCard(2000000);
@@ -19,5 +39,83 @@ public class Machine
         System.out.println(db.getCustomer("Jens Jensen"));
         db.getCustomer("Jens Jensen").refillWashCard(501);
         System.out.println(db.getCustomer("Jens Jensen"));
+    } // end of main
+
+    public static int showMainMenu()
+    {
+        int choice = 0;
+        
+        while(choice != 1 && choice != 2 && choice != 3)
+        {
+            clearTerm();   
+            System.out.println("-----------Main Menu----------");
+            System.out.println("--- Please insert washcard ---");
+            System.out.println("1. OPTION");
+            System.out.println("2. OPTION");
+            System.out.println("3. QUIT");
+            choice = getInput();
+            
+        }
+        return choice;
+    }
+
+    private static void showRegisterMenu()
+    {
+        int balanceChoice = 0;
+        do
+        {
+            balanceChoice = 0;
+            System.out.println("------Choose a starting balance------");
+            for(int i = 1; i < 6; i++)
+            {
+                System.out.println(i + ". OPTION");
+            }
+            
+            balanceChoice = getInput();         
+
+        } while(balanceChoice != 1 
+                && balanceChoice != 2 
+                && balanceChoice != 3 
+                && balanceChoice != 4 
+                && balanceChoice != 5);
+        System.out.println("saa valgte du noget");
+        waitForEnter();   
+    }
+
+    public static int getInput()
+    {
+        Scanner input = new Scanner(System.in);                     
+        int numberToReturn = input.nextInt();
+        input.nextLine(); //fanger den nye linie der kommer ved et entertryk
+        clearTerm();
+        return numberToReturn;
+    }
+    
+    private static void waitForEnter()
+    {
+        Scanner input = new Scanner(System.in);                     
+        input.nextLine(); //fanger den nye linie der kommer ved et entertryk
+        clearTerm();        
+    }
+
+    public static void clearTerm()
+    {
+        for (int i = 0; i < 45; i++)
+            {
+                System.out.println("");
+            }
+    }
+
+    private static void showCustomerMenuFor(int cardNr)
+    {
+        System.out.println("Har logget en bruger ind med WashCard nr: " + cardNr);
+        waitForEnter();
+    }
+
+    private static int insertWashCardNr()
+    {
+        System.out.println("Et kort bliver nu brugt til at vaelge bruger.");
+        waitForEnter();    
+        return 1;
     }
 }

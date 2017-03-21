@@ -10,7 +10,7 @@ public class Customer
      {
           this.firstName = firstName;
           this.lastName = lastName;
-	     this.creditCard = creditCard;
+	      this.creditCard = creditCard;
      }
      
      public String getName()
@@ -57,7 +57,7 @@ public class Customer
      {
          if (washCard != null)
          {
-             return  firstName + " " + lastName + " har et wash card med " + washCard.getBalance() + " kr. på.";
+             return  firstName + " " + lastName + " har et wash card med " + washCard.getBalance() + " kr. paa.";
          } 
          else
          {

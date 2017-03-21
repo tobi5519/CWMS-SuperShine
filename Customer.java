@@ -33,7 +33,14 @@ public class Customer
      @Override
      public String toString()
      {
-          return firstName + " " + lastName;
+         if (washCard != null)
+         {
+             return  firstName + " " + lastName + " har et wash card med " + washCard.getBalance() + " kr. på.";
+         } 
+         else
+         {
+             return firstName + " " + lastName + " har ikke noget wash card";
+         }
      }
 
 }

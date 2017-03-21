@@ -7,13 +7,20 @@ public class WashCard
          this.balance = balance;
      }
 
-     public double checkBalance()
+     public double getBalance()
      {
          return balance;
+     }
+
+     public void setBalance(double amount)
+     {
+        this.balance = amount;
      }
 
      public void buyCarWash(double balance)
      {
          
      }
+
+     
 }

@@ -19,16 +19,38 @@ public class Customer
      }
      public void buyWashCard(double amount)
      {
-         if (creditCard.getBalance() >= amount && amount <= 1000 && amount >= 200)
-         {
-            this.washCard = new WashCard(amount);
-            creditCard.setBalance(amount);
+        if (creditCard.getBalance() >= amount && amount <= 1000 && amount >= 200)
+        {
+            if (this.washCard == null)
+            {
+                this.washCard = new WashCard(amount);
+                creditCard.setBalance(creditCard.getBalance() - amount);
+            }
+            else 
+            {
+                System.out.println(" You can't have more than one wash card, select another option");
+            }
+            
         }
         else 
         {
-            System.out.println("Please enter a valid amount, you cunt!");
+            System.out.println("Please enter a valid amount");
         }
-    }
+     }
+
+     public void refillWashCard(double amount)
+     {
+         if (washCard.getBalance() + amount <= 1000 && washCard.getBalance() + amount >= 200)
+         {
+            washCard.setBalance(amount);
+         }
+         else
+         {
+             System.out.println("Invalid amount! Enter new amount");
+         }
+     }
+
+     
 
      @Override
      public String toString()

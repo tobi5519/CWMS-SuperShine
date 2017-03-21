@@ -42,7 +42,7 @@ public class Customer
      {
          if (washCard.getBalance() + amount <= 1000 && washCard.getBalance() + amount >= 200)
          {
-            washCard.setBalance(amount);
+            washCard.setBalance(washCard.getBalance() + amount);
          }
          else
          {

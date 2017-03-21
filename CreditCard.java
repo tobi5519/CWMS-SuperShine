@@ -16,9 +16,4 @@ public class CreditCard
          this.balance = amount; 
      }
 
-
-    //  public Boolean purchase(double amount)
-    //  {
-
-    //  }
 }

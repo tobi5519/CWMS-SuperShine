@@ -117,8 +117,8 @@ public class Machine
         //skriver, choose a card to insert
         //en Customer har kun et kort saa, vi kan bare skriver
         //for hver customer i customer arraylisten
-          //skriv: placering objekt i arraylist + customerObjektsNavn
-        //scan for nr
+          //skriv: customerObjekts.Korts.Nr + "" + customerObjekts.Navn
+        //scan for nr man vil vælge
         //return det valgte nummer
         System.out.println("Et kort bliver nu brugt til at vaelge bruger.");
         waitForEnter();    

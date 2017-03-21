@@ -12,10 +12,10 @@ public class Machine
         {
             switch(showMainMenu())
             {
-                case 1: 
+                case 1: // login
                     showCustomerMenuFor(insertWashCardNr());
                     break;
-                case 2:
+                case 2: // new user
                     showRegisterMenu();
                     break;
                 case 3:

@@ -17,11 +17,18 @@ public class Customer
      {
           return firstName + " " + lastName;
      }
-     
      public void buyWashCard(double amount)
      {
-     	  
-     }
+         if (creditCard.getBalance() >= amount && amount <= 1000 && amount >= 200)
+         {
+            this.washCard = new WashCard(amount);
+            creditCard.setBalance(amount);
+        }
+        else 
+        {
+            System.out.println("Please enter a valid amount, you cunt!");
+        }
+    }
 
      @Override
      public String toString()

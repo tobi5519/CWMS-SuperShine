@@ -27,17 +27,19 @@ public class Database
           return null; 
      }
 
+     public Customer addCustomer(String firstName, String lastName, double ccAmount)
+     {
+          int newID = customerList.size();
+          customerList.add(new Customer(firstName, lastName, new CreditCard(ccAmount), newID+1));
+          return customerList.get(newID);
+     }
+
      public void addCustomer(String firstName, String lastName, double ccAmount, double amount)
      {
           int newID = customerList.size();
-          customerList.add(new Customer(firstName, lastName, new CreditCard(ccAmount), newID, amount));
+          customerList.add(new Customer(firstName, lastName, new CreditCard(ccAmount), newID+1, amount));
      }
 
-     public void addCustomer(String firstName, String lastName, double ccAmount)
-     {
-          int newID = customerList.size();
-          customerList.add(new Customer(firstName, lastName, new CreditCard(ccAmount), newID));
-     }
 
      public void printAllCustomers()
      {

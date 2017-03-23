@@ -63,6 +63,7 @@ public class Machine
         String firstName;
         String lastName;
         double ccAmount;
+        double wcAmount;
 
         System.out.print("Please Insert First Name: ");
         firstName = getString();
@@ -70,29 +71,26 @@ public class Machine
         lastName = getString();
         System.out.print("Please Wish for magic creditcard! <3 \nWhat balance would you like to have on it?: ");
         ccAmount = getDouble();
+        Customer currentCustomer = db.addCustomer(firstName, lastName, ccAmount);
 
-
-        db.addCustomer(firstName, lastName, ccAmount);
+        System.out.print("Would you like a WashCard with that? (y/n): ");
         
-        int balanceChoice = 0;
-        do
+        if(getString().equalsIgnoreCase("y"))
         {
-            balanceChoice = 0;
-            System.out.println("------Choose a starting balance------");
-            for(int i = 1; i < 6; i++)
-            {
-                System.out.println(i + ". OPTION");
-            }
-            
-            balanceChoice = getInt();         
+            System.out.println("With what amount? ");
+            System.out.print("200 - 1000kr: ");
 
-        } while(balanceChoice != 1 
-                && balanceChoice != 2 
-                && balanceChoice != 3 
-                && balanceChoice != 4 
-                && balanceChoice != 5);
-        System.out.println("saa valgte du noget");
-        waitForEnter();   
+            wcAmount = getDouble();
+            currentCustomer.buyWashCard(wcAmount);
+            // System.out.println(" wcAmount: " + wcAmount + "\n firstName: " + firstName + "\n lastName: " + lastName);
+            // System.out.println(currentCustomer);
+            waitForEnter();
+        }
+        else
+        {
+            System.out.println("oki doki, du er nu oprettet UDEN WashCard");
+            db.addCustomer(firstName, lastName, ccAmount);
+        }
     }
 
     public static int getInt()
@@ -147,12 +145,6 @@ public class Machine
     {
         System.out.println("Choose a card to insert");
         db.printAllCustomers();
-        //skriver, choose a card to insert
-        //en Customer har kun et kort saa, vi kan bare skriver
-        //for hver customer i customer arraylisten
-          //skriv: customerObjekts.Korts.Nr + "" + customerObjekts.Navn
-        //scan for nr man vil vaelge
-        //return det valgte nummer
         System.out.println("Et kort bliver nu brugt til at vaelge bruger.");
         waitForEnter();    
         return 1;

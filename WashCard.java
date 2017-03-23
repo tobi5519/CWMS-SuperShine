@@ -2,7 +2,7 @@ public class WashCard
 {
      private double balance;
 
-     public WashCard(double balance, int washCardNr)
+     public WashCard(double balance)
      {
         this.balance = balance;
      }

@@ -46,7 +46,7 @@ public class Customer
             //allow the customer to buy a washcard, ONLY if he doesn't already have one
             if (this.washCard == null)
             {
-                this.washCard = new WashCard(amount, 1);
+                this.washCard = new WashCard(amount);
                 creditCard.setBalance(creditCard.getBalance() - amount);
                 //todo: add the washcard to the arraylist aswell
             }
@@ -58,7 +58,8 @@ public class Customer
         }
         else 
         {
-            System.out.println("Please enter a valid amount");
+            System.out.println("Invalid amount, aborting purchase.");
+
         }
      }
 

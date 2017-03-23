@@ -1,10 +1,17 @@
 public class WashCard
 {
      private double balance;
+     private int washCardNr;
 
-     public WashCard(double balance)
+     public WashCard(double balance, int washCardNr)
      {
-         this.balance = balance;
+        this.washCardNr = washCardNr;
+        this.balance = balance;
+     }
+
+     public int getWashCardNr()
+     {
+         return washCardNr;
      }
 
      public double getBalance()

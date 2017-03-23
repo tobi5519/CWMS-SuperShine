@@ -4,6 +4,8 @@ public class Database
 {
      ArrayList<Receipt> receiptList = new ArrayList<Receipt>();
      ArrayList<Customer> customerList = new ArrayList<Customer>();
+     ArrayList<WashCard> washCards = new ArrayList<WashCard>();
+
 
      public Receipt getReceipt(int x)
      {
@@ -30,6 +32,26 @@ public class Database
      public void addCustomer(Customer customer)
      {
           customerList.add(customer);
+     }
+
+     public WashCard getWashCardByID(int id) {
+          
+          return washCards.get(id-1);
+     }
+
+     public void printAllWashCards()
+     {
+          for(WashCard washCardsIn : washCards)
+          {
+               System.out.println(washCardsIn.getWashCardNr() + " card for " + customerList.get(washCardsIn.getWashCardNr()-1).getName()); 
+          }
+     }
+
+     public WashCard createWashCard(double amount)
+     {
+          int location = washCards.size();
+          washCards.add(location , new WashCard(amount, location+1));
+          return washCards.get(location);
      }
 
      public void stats()

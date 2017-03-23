@@ -12,6 +12,19 @@ public class Customer
           this.lastName = lastName;
 	      this.creditCard = creditCard;
      }
+
+     public Customer(String firstName, String lastName, CreditCard creditCard, WashCard washCard) 
+     {
+          this.firstName = firstName;
+          this.lastName = lastName;
+	      this.creditCard = creditCard;
+          this.washCard = washCard;
+     }
+
+     public WashCard getWashCard()
+     {
+         return this.washCard;
+     }
      
      public String getName()
      {
@@ -23,7 +36,7 @@ public class Customer
         {
             if (this.washCard == null)
             {
-                this.washCard = new WashCard(amount);
+                this.washCard = new WashCard(amount, 1);
                 creditCard.setBalance(creditCard.getBalance() - amount);
             }
             else 

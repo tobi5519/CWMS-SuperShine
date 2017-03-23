@@ -6,6 +6,22 @@ public class Machine
     
     public static void main(String[] args) 
     {   
+        Database db = new Database();
+        CreditCard cc1 = new CreditCard(2000);
+        CreditCard cc2 = new CreditCard(2000000);
+
+        Customer jens = new Customer("Jens", "Jensen", cc1, db.createWashCard(200));
+        Customer bent = new Customer("bent", "jansen", cc2, db.createWashCard(500));
+
+        db.addCustomer(jens);
+        db.addCustomer(bent);
+        
+        // System.out.println(db.getCustomer("bent jansen"));
+
+        // db.getCustomer("Jens Jensen").buyWashCard(500);
+        // System.out.println(db.getCustomer("Jens Jensen"));
+        // db.getCustomer("Jens Jensen").refillWashCard(501);
+        // System.out.println(db.getCustomer("Jens Jensen"));
         boolean turnedOn = true;
         
         while (turnedOn)
@@ -13,7 +29,7 @@ public class Machine
             switch(showMainMenu())
             {
                 case 1: // login
-                    showCustomerMenuFor(insertWashCardNr());
+                    showCustomerMenuFor(insertWashCardNr(db));
                     break;
                 case 2: // new user
                     showRegisterMenu();
@@ -24,21 +40,7 @@ public class Machine
             } // end switch
         } //end while
 
-        Database db = new Database();
-        CreditCard cc1 = new CreditCard(2000);
-        CreditCard cc2 = new CreditCard(2000000);
-        Customer jens = new Customer("Jens", "Jensen", cc1);
-        Customer bent = new Customer("bent", "jansen", cc2);
-
-        db.addCustomer(jens);
-        db.addCustomer(bent);
         
-        System.out.println(db.getCustomer("bent jansen"));
-
-        db.getCustomer("Jens Jensen").buyWashCard(500);
-        System.out.println(db.getCustomer("Jens Jensen"));
-        db.getCustomer("Jens Jensen").refillWashCard(501);
-        System.out.println(db.getCustomer("Jens Jensen"));
     } // end of main
 
     public static int showMainMenu()
@@ -112,13 +114,15 @@ public class Machine
         waitForEnter();
     }
 
-    private static int insertWashCardNr()
+    private static int insertWashCardNr(Database db)
     {
+        System.out.println("Choose a card to insert");
+        db.printAllWashCards();
         //skriver, choose a card to insert
         //en Customer har kun et kort saa, vi kan bare skriver
         //for hver customer i customer arraylisten
           //skriv: customerObjekts.Korts.Nr + "" + customerObjekts.Navn
-        //scan for nr man vil vælge
+        //scan for nr man vil vaelge
         //return det valgte nummer
         System.out.println("Et kort bliver nu brugt til at vaelge bruger.");
         waitForEnter();    

@@ -4,8 +4,6 @@ public class Database
 {
      ArrayList<Receipt> receiptList = new ArrayList<Receipt>();
      ArrayList<Customer> customerList = new ArrayList<Customer>();
-     ArrayList<WashCard> washCards = new ArrayList<WashCard>();
-
 
      public Receipt getReceipt(int x)
      {
@@ -29,29 +27,24 @@ public class Database
           return null; 
      }
 
-     public void addCustomer(Customer customer)
+     public void addCustomer(String firstName, String lastName, double ccAmount, double amount)
      {
-          customerList.add(customer);
+          int newID = customerList.size();
+          customerList.add(new Customer(firstName, lastName, new CreditCard(ccAmount), newID, amount));
      }
 
-     public WashCard getWashCardByID(int id) {
-          
-          return washCards.get(id-1);
+     public void addCustomer(String firstName, String lastName, double ccAmount)
+     {
+          int newID = customerList.size();
+          customerList.add(new Customer(firstName, lastName, new CreditCard(ccAmount), newID));
      }
 
-     public void printAllWashCards()
+     public void printAllCustomers()
      {
-          for(WashCard washCardsIn : washCards)
+          for(Customer customersIn : customerList)
           {
-               System.out.println(washCardsIn.getWashCardNr() + " card for " + customerList.get(washCardsIn.getWashCardNr()-1).getName()); 
+               System.out.println(customersIn);
           }
-     }
-
-     public WashCard createWashCard(double amount)
-     {
-          int location = washCards.size();
-          washCards.add(location , new WashCard(amount, location+1));
-          return washCards.get(location);
      }
 
      public void stats()

@@ -10,11 +10,8 @@ public class Machine
         CreditCard cc1 = new CreditCard(2000);
         CreditCard cc2 = new CreditCard(2000000);
 
-        Customer jens = new Customer("Jens", "Jensen", cc1, db.createWashCard(200));
-        Customer bent = new Customer("bent", "jansen", cc2, db.createWashCard(500));
-
-        db.addCustomer(jens);
-        db.addCustomer(bent);
+        db.addCustomer("Jens", "Jensen", 2000, 200);
+        db.addCustomer("bent", "jansen", 20000000, 500);
         
         // System.out.println(db.getCustomer("bent jansen"));
 
@@ -32,7 +29,7 @@ public class Machine
                     showCustomerMenuFor(insertWashCardNr(db));
                     break;
                 case 2: // new user
-                    showRegisterMenu();
+                    showRegisterMenu(db);
                     break;
                 case 3:
                     turnedOn = false;
@@ -55,14 +52,28 @@ public class Machine
             System.out.println("1. Login");
             System.out.println("2. New User");
             System.out.println("3. QUIT");
-            choice = getInput();
+            choice = getInt();
             
         }
         return choice;
     }
 
-    private static void showRegisterMenu()
+    private static void showRegisterMenu(Database db)
     {
+        String firstName;
+        String lastName;
+        double ccAmount;
+
+        System.out.print("Please Insert First Name: ");
+        firstName = getString();
+        System.out.print("Please Insert Last Name: ");
+        lastName = getString();
+        System.out.print("Please Wish for magic creditcard! <3 \nWhat balance would you like to have on it?: ");
+        ccAmount = getDouble();
+
+
+        db.addCustomer(firstName, lastName, ccAmount);
+        
         int balanceChoice = 0;
         do
         {
@@ -73,7 +84,7 @@ public class Machine
                 System.out.println(i + ". OPTION");
             }
             
-            balanceChoice = getInput();         
+            balanceChoice = getInt();         
 
         } while(balanceChoice != 1 
                 && balanceChoice != 2 
@@ -84,13 +95,31 @@ public class Machine
         waitForEnter();   
     }
 
-    public static int getInput()
+    public static int getInt()
     {
         Scanner input = new Scanner(System.in);                     
         int numberToReturn = input.nextInt();
         input.nextLine(); //fanger den nye linie der kommer ved et entertryk
         clearTerm();
         return numberToReturn;
+    }
+
+    public static double getDouble()
+    {
+        Scanner input = new Scanner(System.in);                     
+        double numberToReturn = input.nextDouble();
+        input.nextLine(); //fanger den nye linie der kommer ved et entertryk
+        clearTerm();
+        return numberToReturn;
+    }
+
+    public static String getString()
+    {
+        Scanner input = new Scanner(System.in);                     
+        String stringToReturn = input.next();
+        input.nextLine(); //fanger den nye linie der kommer ved et entertryk
+        clearTerm();
+        return stringToReturn;
     }
     
     private static void waitForEnter()
@@ -117,7 +146,7 @@ public class Machine
     private static int insertWashCardNr(Database db)
     {
         System.out.println("Choose a card to insert");
-        db.printAllWashCards();
+        db.printAllCustomers();
         //skriver, choose a card to insert
         //en Customer har kun et kort saa, vi kan bare skriver
         //for hver customer i customer arraylisten

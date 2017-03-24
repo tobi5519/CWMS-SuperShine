@@ -138,10 +138,9 @@ public class Machine
 
     public static void clearTerm()
     {
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();   
-
-    } 
+        System.out.print("\033[h\033[2j");
+        System.out.flush();
+    }
 
     private static void showCustomerMenuFor(int cardNr)
     {

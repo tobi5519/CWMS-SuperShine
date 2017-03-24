@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.io.*;
 public class Machine  
 {
     
@@ -136,6 +136,7 @@ public class Machine
         clearTerm();        
     }
 
+    
     public static void clearTerm()
     {
         System.out.print("\033[h\033[2j");

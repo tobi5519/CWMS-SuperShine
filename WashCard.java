@@ -17,9 +17,11 @@ public class WashCard
         this.balance = amount;
      }
 
-     public void buyCarWash(double balance)
+     public CarWash buyCarWash(CarWash carwash)
      {
-         //todo   
+         this.balance -= carwash.getPrice();
+         System.out.println("purchase successful!");
+         return carwash;
      }
 
      

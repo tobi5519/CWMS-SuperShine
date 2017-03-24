@@ -14,7 +14,7 @@ public class Machine
         CreditCard cc2 = new CreditCard(2000000);
         
 
-        db.addCustomer("Jens", "Jensen", 2000, 200);
+        db.addCustomer("Jens", "Jensen", 1100, 200);
         db.addCustomer("bent", "jansen", 20000000, 500);
         db.addCarWash("Greywash", 50);
         db.addCarWash("Whitewash", 100);
@@ -95,12 +95,12 @@ public class Machine
             currentCustomer.buyWashCard(wcAmount);
             // System.out.println(" wcAmount: " + wcAmount + "\n firstName: " + firstName + "\n lastName: " + lastName);
             // System.out.println(currentCustomer);
-            waitForEnter();
         }
         else
         {
             System.out.println("oki doki, du er nu oprettet UDEN WashCard");
             db.addCustomer(firstName, lastName, ccAmount);
+            waitForEnter();
         }
     }
 
@@ -158,7 +158,7 @@ public class Machine
     {
         int choice = 0;
 
-        while(choice != 1 && choice != 2 && choice != 3)
+        while(choice != 3)
         {   
             clearTerm();
             System.out.println("Customer Menu for: " + thisCustomer.getName());
@@ -171,24 +171,30 @@ public class Machine
             switch(choice)
             {
                 case 1:
-                    CarWash carWash = thisCustomer.getWashCard().buyCarWash(chooseCarWash(db));
-                    System.out.print("Would you like a receipt? (y/n): ");
-                    db.addReceipt(getDate(), thisCustomer, carWash, carWash.getPrice());
-                    if(getString().equalsIgnoreCase("y"))
+
+                    CarWash carWash = chooseCarWash(db); 
+                    if(thisCustomer.getWashCard().buyCarWash(carWash))
                     {
-                        System.out.println(db.getReceipt(db.receiptList.size()-1));
+                        System.out.print("Would you like a receipt? (y/n): ");
+                        db.addReceipt(getDate(), thisCustomer, carWash, carWash.getPrice());
+                        if(getString().equalsIgnoreCase("y"))
+                        {
+                            System.out.println(db.getReceipt(db.receiptList.size()-1));
+                        }
                     }
+                    waitForEnter();
                     break;
                 
                 case 2:
-                    break;
-                
-                case 3:
+                    System.out.println("With what amount? ");
+                    System.out.print("200 - 1000kr: ");
+                    if( !(thisCustomer.refillWashCard(getDouble() ) ) )
+                    {
+                        waitForEnter();
+                    }
                     break;
             }
         }
-
-        waitForEnter();
     }
 
     private static Customer chooseCustomer(Database db)

@@ -64,16 +64,24 @@ public class Customer
      }
 
      //refill the washcard
-     public void refillWashCard(double amount)
+     public boolean refillWashCard(double amount)
      {
          //restrict amount to insert on the washcard
-         if (washCard.getBalance() + amount <= 1000 && washCard.getBalance() + amount >= 200)
+         if (washCard.getBalance() + amount <= 1000 && washCard.getBalance() + amount >= 200 && this.creditCard.getBalance() >= amount)
          {
             washCard.setBalance(washCard.getBalance() + amount);
+            creditCard.setBalance(creditCard.getBalance() - amount);
+            return true;
+         }
+         else if(this.creditCard.getBalance() < amount)
+         {
+             System.out.println("Payment Rejected! Check your bank account!");
+             return false;
          }
          else
          {
-             System.out.println("Invalid amount! Enter new amount");
+             System.out.println("Invalid amount! Returning to Customer Menu");
+             return false;
          }
      }
 

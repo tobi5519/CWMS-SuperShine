@@ -17,11 +17,19 @@ public class WashCard
         this.balance = amount;
      }
 
-     public CarWash buyCarWash(CarWash carwash)
+     public Boolean buyCarWash(CarWash carwash)
      {
-         this.balance -= carwash.getPrice();
-         System.out.println("purchase successful!");
-         return carwash;
+         if(carwash.getPrice() <= this.balance)
+         {
+            this.balance -= carwash.getPrice();
+            System.out.println("purchase successful!");
+            return true;
+         }
+         else
+         {
+             System.out.println("Error, not enough money");
+             return false;             
+         }
      }
 
      

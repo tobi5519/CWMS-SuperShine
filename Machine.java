@@ -95,7 +95,7 @@ public class Machine
         }
         else
         {
-            System.out.println("oki doki, du er nu oprettet UDEN WashCard");
+            System.out.println("You have been registered without a washcard");
             db.addCustomer(firstName, lastName, ccAmount);
             waitForEnter();
         }

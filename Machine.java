@@ -34,6 +34,9 @@ public class Machine
                 case 3:
                     turnedOn = false;
                     break;
+                case 4:
+                    showStats(db);
+                    break;
             } // end switch
         } //end while
 
@@ -44,20 +47,26 @@ public class Machine
     {
         int choice = 0;
         
-        while(choice != 1 && choice != 2 && choice != 3)
+        while(choice != 1 && choice != 2 && choice != 3 && choice != 4)
         {
             clearTerm();   
             System.out.println("-----------Main Menu----------");
-            
-            System.out.println("1. Login");
-            System.out.println("2. New User");
-            System.out.println("3. QUIT");
+            System.out.println("1: Login");
+            System.out.println("2: New User");
+            System.out.println("3: QUIT");
+            System.out.println("4: Stats");
+            System.out.println("------------------------------");
+            System.out.print("Choice: ");
             choice = getInt();
             
         }
         return choice;
     }
-
+    private static void showStats(Database db)
+    {
+        System.out.println("Wow, much greate stats yo!");
+        waitForEnter();
+    }
     private static void showRegisterMenu(Database db)
     {
         String firstName;
@@ -129,11 +138,10 @@ public class Machine
 
     public static void clearTerm()
     {
-        for (int i = 0; i < 45; i++)
-            {
-                System.out.println("");
-            }
-    }
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();   
+
+    } 
 
     private static void showCustomerMenuFor(int cardNr)
     {

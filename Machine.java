@@ -33,7 +33,8 @@ public class Machine
                     showRegisterMenu(db);
                     break;
                 case 3:
-                    showStats(db);
+                    db.stats();
+                    waitForEnter();
                     break;
                 case 4:
                     turnedOn = false;
@@ -63,11 +64,7 @@ public class Machine
         }
         return choice;
     }
-    private static void showStats(Database db)
-    {
-        System.out.println("Wow, much greate stats yo!");
-        waitForEnter();
-    }
+
     
     private static void showRegisterMenu(Database db)
     {

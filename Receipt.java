@@ -8,7 +8,6 @@ public class Receipt
     private double price;
     private int id;
     
-
     public Receipt(String date, Customer customer, CarWash carWash, double price, int id)
     {
         this.date = date;
@@ -17,7 +16,11 @@ public class Receipt
         this.price = price;   
         this.id = id;
     }
-
+    public CarWash getCarWash()
+    {
+        return this.carWash;
+    }
+    
     @Override
     public String toString() 
     {

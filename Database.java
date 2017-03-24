@@ -119,20 +119,30 @@ public class Database
                totalWashes = nrGW + nrWW + nrCW;
                median = price / totalWashes;
 
-
-               
-
-               
-
           }
+
                // Print stats
                System.out.println("Number of carwashes: #" + totalWashes + " (Total gross: " + String.format("%.2f", price) + " kr.)");
                System.out.println("GreyWash: #" + nrGW + " (gross " + grGW + " kr.)");
                System.out.println("Whitewash: #" + nrWW + " (gross " + grWW + " kr.)");
                System.out.println("Clearwash: #" + nrCW + " (gross " + grCW + " kr.)");
                System.out.println("The average price for a carwash is : " + String.format("%.2f", median) + " kr.");
-         
-     }
+               System.out.println("");
 
-     // System.out.println("saa da");
+               // for hver customer i customerList get price of all Receipts from receiptList
+               // Bevidst fejl!! 
+               
+               double customerGross = 0;
+               for (Customer c : customerList)
+               {        
+                    for(Receipt r1 : receiptList)
+                    {
+                         for(Receipt r2 : receiptList)
+                         {
+                              customerGross += r2.getPrice;
+                         }
+                         System.out.println(c.getName() + " has spent " + customerGross + " kr. ");
+                    }
+               }
+     }
 }

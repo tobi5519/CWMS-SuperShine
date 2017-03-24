@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.io.*;
 public class Machine  
 {
     
@@ -138,8 +138,24 @@ public class Machine
 
     public static void clearTerm()
     {
+        if(System.getProperty("os.name").equals("Linux")){
         System.out.print("\033[H\033[2J");  
         System.out.flush();   
+        } else {
+        try {
+            Process p = Runtime.getRuntime().exec("cls");
+            BufferedReader in = new BufferedReader(
+                                new InputStreamReader(p.getInputStream()));
+            String line = null;
+            while ((line = in.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        }
+
+
 
     } 
 

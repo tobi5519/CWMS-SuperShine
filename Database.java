@@ -24,19 +24,6 @@ public class Database
           return customerList.get(id-1);
      }
 
-     // public Customer getCustomer(String name)
-     // {
-     //      for(Customer customer : customerList)
-     //      {
-     //           if(customer.getName().equals(name))
-     //           {
-     //                return customer;
-     //           }
-     //      }
-     //      return null; 
-     // }
-
-
      public Customer addCustomer(String firstName, String lastName, double ccAmount)
      {
           int newID = customerList.size();

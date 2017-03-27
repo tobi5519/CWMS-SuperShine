@@ -28,7 +28,16 @@ public class Customer
      //get the washcard
      public WashCard getWashCard()
      {
+        try
+        {
          return this.washCard;
+        }
+        catch (Exception e)
+        {
+            System.out.println("Washcard missing");
+            return new WashCard(0);
+        }
+        
      }
      
      //get the name

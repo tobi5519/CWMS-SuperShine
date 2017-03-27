@@ -87,13 +87,11 @@ public class Machine
 
             wcAmount = getDouble();
             currentCustomer.buyWashCard(wcAmount);
-            // System.out.println(" wcAmount: " + wcAmount + "\n firstName: " + firstName + "\n lastName: " + lastName);
-            // System.out.println(currentCustomer);
+
         }
         else
         {
             System.out.println("You have been registered without a washcard");
-            db.addCustomer(firstName, lastName, ccAmount);
             waitForEnter();
         }
     }
@@ -156,7 +154,15 @@ public class Machine
         {   
             clearTerm();
             System.out.println("Customer Menu for: " + thisCustomer.getName());
+            
+            try  {
             System.out.println("Your balance is: " + thisCustomer.getWashCard().getBalance());
+        }
+        catch (Exception e)
+        {
+            System.out.println("WashCard missing.'");
+        }
+                
             System.out.println("1. Buy Carwash.");
             System.out.println("2. Refill Washcard");
             System.out.println("3. Return to Main Menu.");

@@ -30,7 +30,7 @@ public class Machine
                     showRegisterMenu(db);
                     break;
                 case 3:
-                    db.stats();
+                    db.stats(); 
                     waitForEnter();
                     break;
                 case 4:

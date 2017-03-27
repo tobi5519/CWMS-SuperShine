@@ -10,10 +10,7 @@ public class Machine
     public static void main(String[] args) 
     {   
         Database db = new Database();
-        CreditCard cc1 = new CreditCard(2000);
-        CreditCard cc2 = new CreditCard(2000000);
-        
-
+      
         db.addCustomer("Jens", "Jensen", 1100, 200);
         db.addCustomer("bent", "jansen", 20000000, 500);
         db.addCarWash("Greywash", 50);

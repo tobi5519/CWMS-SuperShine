@@ -146,11 +146,12 @@ public class Machine
         } 
     }
 
+
     private static void showCustomerMenu(Customer thisCustomer, Database db)
     {
         int choice = 0;
 
-        while(choice != 3)
+        while(choice != 4)
         {   
             clearTerm();
             System.out.println("Customer Menu for: " + thisCustomer.getName());
@@ -162,27 +163,29 @@ public class Machine
         {
             System.out.println("WashCard missing.'");
         }
-                
+            
             System.out.println("1. Buy Carwash.");
             System.out.println("2. Refill Washcard");
-            System.out.println("3. Return to Main Menu.");
+            System.out.println("3. Buy WashCard.");
+            System.out.println("4. Return to Main Menu.");
             choice = getInt();
             
-            switch(choice)
+            if(thisCustomer.getWashCard() != null)
             {
+                switch(choice)
+                {
                 case 1:
-
-                    CarWash carWash = chooseCarWash(db); 
-                    if(thisCustomer.getWashCard().buyCarWash(carWash))
-                    {
-                        System.out.print("Would you like a receipt? (y/n): ");
-                        db.addReceipt(getDate(), thisCustomer, carWash, carWash.getPrice());
-                        if(getString().equalsIgnoreCase("y"))
+                        CarWash carWash = chooseCarWash(db); 
+                        if(thisCustomer.getWashCard().buyCarWash(carWash))
                         {
-                            System.out.println(db.getReceipt(db.receiptList.size()-1));
+                            System.out.print("Would you like a receipt? (y/n): ");
+                            db.addReceipt(getDate(), thisCustomer, carWash, carWash.getPrice());
+                            if(getString().equalsIgnoreCase("y"))
+                            {
+                                System.out.println(db.getReceipt(db.receiptList.size()-1));
+                            }
                         }
-                    }
-                    waitForEnter();
+                        waitForEnter();
                     break;
                 
                 case 2:
@@ -193,7 +196,24 @@ public class Machine
                         waitForEnter();
                     }
                     break;
+                }
+
+            } 
+            else if (choice == 3)
+            {
+                 System.out.println("With what amount? ");
+            System.out.print("200 - 1000kr: ");
+
+            double wcAmount = getDouble();
+                thisCustomer.buyWashCard(wcAmount);
+                waitForEnter();
             }
+            else if (choice == 1 || choice == 2)
+            {
+                System.out.println("No washcard present, please purchase a washcard.");
+                waitForEnter();
+            }
+            
         }
     }
 

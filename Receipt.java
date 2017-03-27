@@ -20,14 +20,6 @@ public class Receipt
     {
         return this.carWash;
     }
-    public Customer getCustomer()
-    {
-        return this.customer;
-    }
-    public double getPrice()
-    {
-        return this.price;
-    }
     
     @Override
     public String toString() 
